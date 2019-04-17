@@ -20,7 +20,7 @@
 
 ------
 
-![demo](static/vue-drag-tree.gif)
+![demo](static/ml-vue-drag-tree.gif)
 
 ### 快速开始
 

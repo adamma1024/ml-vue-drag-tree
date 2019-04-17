@@ -7,18 +7,24 @@
   @drop.stop='drop' 
   @dragend.stop='dragEnd' 
   class='dnd-container'>
-    <div :class='{"ivu-menu-item-active": isActived, "ivu-menu-item-hover":isHover,"child-hover": isDragChildHover,"ivu-menu-item tree-node-div": true}' 
+    <div :class='{"menu-item-active": isActived,
+    "menu-item-active-before": isActived,
+    "ivu-menu-item-hover":isHover,
+    "child-hover": isDragChildHover,
+    "top-hover": isDragTopHover,
+    "bottom-hover": isDragBottomHover, 
+    "ivu-menu-item tree-node-div": true}' 
     @click="toggle"
     @mouseenter='mouseEnter' 
     @mouseleave='mouseLeave'>
       <div
-        :class='{"ml-drag-top-div": true, "top-hover": isDragTopHover, "ivu-menu-item-active": isActived}' 
+        :class='{"ml-drag-top-div": true, "menu-item-active": isActived}' 
         @dragenter.stop='dragEnterTop' 
         @dragleave.stop='dragLeaveTop'>
       </div>
       <div 
       :style="{ 'padding-left': (this.depth - 1) * 14 + 'px' }" 
-      :class='{"ml-drag-content-div": true, "ml-drag-content": true, "ivu-menu-item-active": isActived, "ivu-menu-item-hover":isHover}'
+      :class='{"ml-drag-content-div": true, "ml-drag-content": true, "menu-item-active": isActived, "ivu-menu-item-hover":isHover}'
       @dragenter.stop='dragEnterChild' 
       @dragleave.stop='dragLeaveChild'>
         <div 
@@ -41,7 +47,7 @@
         <Icon :class="[isOpened ? 'nodeClicked' : '','vue-drag-node-icon']" type="ios-arrow-down" v-if="showDropDownIcon()"></Icon>
       </div>
       <div
-        :class='{"ml-drag-bottom-div": true, "bottom-hover": isDragBottomHover, "ivu-menu-item-active": isActived}' 
+        :class='{"ml-drag-bottom-div": true, "menu-item-active": isActived}' 
         @dragenter.stop='dragEnterBottom' 
         @dragleave.stop='dragLeaveBottom'>
       </div>
@@ -298,6 +304,11 @@ export default {
   font-weight: bold;
 }
 
+.menu-item-active{
+  color: #2d8cf0;
+  background: #f0faff;
+  z-index: 2;
+}
 .node-text-div {
   margin-left: 17px;
   height:17px;
@@ -337,26 +348,20 @@ export default {
   height: 14.5px;
 }
 
-.top-hover {
-  border-top: 1px solid rgba(89,140,168,1);
-}
-
-.bottom-hover {
-  border-bottom: 1px solid rgba(89,140,168,1);
-}
-
 .tree-node-div {
-  padding: 2px 1px !important;
+  padding: 1px 2px !important;
 }
 .tree-node-div.child-hover{
-  padding: 1px 0px !important;
+  padding: 0px 1px !important;
   border: 1px dashed rgba(89,140,168,1);
 }
 .tree-node-div.bottom-hover{
-  padding: 1px 1px 0px 1px !important;
+  padding: 1px 2px 0px 2px !important;
+  border-bottom: 1px solid rgba(89,140,168,1);
 }
 .tree-node-div.top-hover{
-  padding: 0px 1px 1px 1px !important;
+  padding: 0px 2px 1px 2px !important;
+  border-top: 1px solid rgba(89,140,168,1);
 }
 
 .ivu-tooltip{
@@ -374,8 +379,15 @@ export default {
   margin-left: 17px; 
 }
 
-.ml-drag-content.ivu-menu-item-active:not(.ivu-menu-submenu):before{
-  display: none !important;
+.menu-item-active-before::before{
+  content: '';
+  display: block;
+  width: 2px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #2d8cf0;
 }
 </style>
 
