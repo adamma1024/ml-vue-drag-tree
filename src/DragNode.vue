@@ -176,8 +176,10 @@ export default {
       //　API: 对外开放的当前被点击节点的信息
       rootTree.emitCurNodeClicked(this.model, this)
 
-      // 通过id记录展开状态
-      this.onNodeClick(this.model.id)
+      if(this.model.children){
+        // 通过id记录展开状态
+        this.onNodeClick(this.model.id)
+      }
     },
     mouseEnter (e) {
       if (!this.dragging) {

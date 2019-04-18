@@ -8,7 +8,7 @@
       :depth='increaseDepth'  
       :key='index'
       :dragging='dragging'
-      :open-names='openNames'
+      :open-names='currOpenNames'
       :active-name='currentName'
       :max-char-num="maxCharNum"
       @on-node-click='changeOpenName'>
@@ -62,7 +62,8 @@ export default {
     return {
       dragging: false,
       children: this.data,
-      currentName: this.activeName
+      currentName: this.activeName,
+      currOpenNames: this.openNames
     }
   },
   computed: {
@@ -85,6 +86,12 @@ export default {
         if(val !== this.data){
           this.$emit('on-data-change', val)
         }
+      }
+    },
+    openNames:{
+      deep: true,
+      handler: function(val){
+        this.currOpenNames = this.openNames
       }
     }
   },
@@ -120,8 +127,9 @@ export default {
       this.$emit('on-menu-mouse-leave', obj)
     },
     changeOpenName (id) {
-      let index = this.openNames.indexOf(id)
-      index > -1 ? this.openNames = [].concat(this.openNames.slice(0, index), this.openNames.slice(index + 1, this.openNames.length + 1)) : this.openNames.push(id)
+      let index = this.currOpenNames.indexOf(id)
+      index > -1 ? this.currOpenNames = [].concat(this.currOpenNames.slice(0, index), this.currOpenNames.slice(index + 1, this.currOpenNames.length + 1)) : this.currOpenNames.push(id)
+      this.$emit('on-open-name-change', this.currOpenNames)
     }
   },
   components: {

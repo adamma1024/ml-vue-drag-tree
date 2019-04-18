@@ -66,14 +66,16 @@ Vue.use(VueDragTree)
 | 事件名               | 描述                                                                     | 参数                                                                                                             |
 | -------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | current-node-clicked | 告诉你哪个节点被点击了，这个节点所在的组件是哪个                         | (model,component) model: 当前被点击节点的数据． component: 当前节点所在的树组件                                  |
+| on-data-change       | 树数据变化时触发                                                         | (data) new **tree** data                                                                                         |
+| on-node-data-change  | 节点数据改变时触发,返回**事件类型**,**受影响父节点**和**拖动的节点**数据 | (type, parentNode, node) type:'remove'/'add'事件类型 parentNode: 受影响父节点 node: 拖动的节点的数据             |
+| on-open-name-change  | 子级菜单打开状态改变时触发，返回openNames数组                            | (arr) new **openNames**                                                                                          |
 | drag                 | 节点被拖动时触发的 `drag` 事件                                           | (model,component,e) model: 当前被拖动节点的数据; component: 当前被拖动节点所在的树组件（VNode）; e: 拖拽事件     |
 | drag-enter           | 当被拖动节点进入有效的放置目标时， `dragenter` 事件被触发                | (model,component,e) model: 有效放置目标节点的数据; component: 有效放置目标节点所在的树组件（VNode）; e: 拖拽事件 |
 | drag-leave           | 当被拖动节点离开有效的放置目标时， `dragleave` 事件被触发                | (model,component,e) model: 有效放置目标节点的数据; component: 有效放置目标节点所在的树组件（VNode）; e: 拖拽事件 |
 | drag-over            | 当节点被拖拽到一个有效的放置目标上时，触发 `dragover `事件               | (model,component,e) model: 有效放置目标节点的数据; component: 有效放置目标节点所在的树组件（VNode）; e: 拖拽事件 |
 | drag-end             | 拖放事件在拖放操作结束时触发                                             | (model,component,e) model: 当前被拖动节点的数据; component: 当前被拖动节点所在的树组件（VNode）; e: 拖拽事件     |
 | drop                 | 当节点被放置到一个有效的防止目标上时，`drop`被触发                       | (model,component,e) model: 当前被拖动节点的数据; component: 当前被拖动节点所在的树组件（VNode）; e: 拖拽事件     |
-| on-data-change       | 树数据变化时触发                                                         | (data) new **tree** data                                                                                         |
-| on-node-data-change  | 节点数据改变时触发,返回**事件类型**,**受影响父节点**和**拖动的节点**数据 | (type, parentNode, node) type:'remove'/'add'事件类型 parentNode: 受影响父节点 node: 拖动的节点的数据             |
+
 
 
 
