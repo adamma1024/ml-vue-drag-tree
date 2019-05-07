@@ -1,6 +1,6 @@
 <template>
   <div class="ivu-menu ivu-menu-light ivu-menu-vertical">
-    <template v-for='(item,index) in children'>
+    <template v-for='(item,index) in data'>
       <drag-node
       :model='item'
       :allowDrag='allowDrag' 
@@ -61,7 +61,6 @@ export default {
   data () {
     return {
       dragging: false,
-      children: this.data,
       currentName: this.activeName,
       currOpenNames: this.openNames
     }
@@ -75,18 +74,8 @@ export default {
     activeName(val){
       this.currentName = val
     },
-    data(val, oldVal){
-      if(val !== oldVal && this.children !== val){
-        this.children = val
-      }
-    },
-    children: {
-      deep: true,
-      handler: function(val){
-        if(val !== this.data){
-          this.$emit('on-data-change', val)
-        }
-      }
+    data(val){
+      this.$emit('on-data-change', val)
     },
     openNames:{
       deep: true,

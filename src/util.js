@@ -69,7 +69,7 @@ const addNodeInVueResponsive = (arr, node) => {
  * @param {*} behind 是否插在目标后面，默认为true
  */
 const exchangePosInVueResponsive = (newFrom, to, behind = true) => {
-  let toParentModel = to.$parent.model || { id: null, children: to.$parent.children }
+  let toParentModel = to.$parent.model || { id: null, children: to.$parent.data }
   let index = toParentModel.children.indexOf(to.model)
   let newIndex = behind ? index + 1 : index
   toParentModel.children.splice(newIndex, 0, newFrom)
