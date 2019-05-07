@@ -34,13 +34,22 @@ const hasInclude = (from, to) => {
  * @param {*} isRoot 是否是根节点默认为false
  */
 const deleteNodeInVueResponsive = (arr, id, isRoot = false) => {
-  arr.children = arr.children.filter(
-    item => item.id !== id
-  )
-  if (arr.children.length !== 0) {
-    Vue.set(arr.children, 0, arr.children[0])
-  } else if (!isRoot) {
-    Vue.delete(arr, 'children')
+  if (isRoot) {
+    arr.data = arr.data.filter(
+      item => item.id !== id
+    )
+    if (arr.data.length !== 0) {
+      Vue.set(arr, 'data', arr.data)
+    }
+  } else {
+    arr.children = arr.children.filter(
+      item => item.id !== id
+    )
+    if (arr.children.length !== 0) {
+      Vue.set(arr, 'children', arr.children)
+    } else {
+      Vue.delete(arr, 'children')
+    }
   }
 }
 
@@ -51,8 +60,8 @@ const deleteNodeInVueResponsive = (arr, id, isRoot = false) => {
  */
 const addNodeInVueResponsive = (arr, node) => {
   // 再from节点添加到to节点中最后一位。
-  if (!arr.children) {
-    Vue.set(arr, 'children', [node])
+  if (arr.data) {
+    Vue.set(arr.data, arr.data.length, node)
   } else {
     if (!arr.children) {
       Vue.set(arr, 'children', [node])
@@ -120,20 +129,24 @@ const exchangeData = (from, to, e) => {
   // 发送删除节点事件
   root.removeChild(parentNode, newFrom)
 
-  if (to.isDragBottomHover) {
-    // 交换位置，插到后面
-    parentNode = exchangePosInVueResponsive(newFrom, to)
-  } else if (to.isDragTopHover) {
-    // 交换位置，插到前面
-    parentNode = exchangePosInVueResponsive(newFrom, to, false)
-  } else {
-    // 嵌套添加
-    addNodeInVueResponsive(toModel, newFrom)
-    parentNode = toModel
-  }
+  const bottom = to.isDragBottomHover
+  const top = to.isDragTopHover
+  from.$nextTick(() => {
+    if (bottom) {
+      // 交换位置，插到后面
+      parentNode = exchangePosInVueResponsive(newFrom, to)
+    } else if (top) {
+      // 交换位置，插到前面
+      parentNode = exchangePosInVueResponsive(newFrom, to, false)
+    } else {
+      // 嵌套添加
+      addNodeInVueResponsive(toModel, newFrom)
+      parentNode = toModel
+    }
 
-  // 发送添加节点事件
-  root.addChild(parentNode, newFrom)
+    // 发送添加节点事件
+    root.addChild(parentNode, newFrom)
+  })
 }
 
 const charWidthTable = {
