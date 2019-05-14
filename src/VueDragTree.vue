@@ -12,11 +12,11 @@
       :active-name='currentName'
       :max-char-num="maxCharNum"
       @on-node-click='changeOpenName'>
-        <template #node-icon="{ node }">
-          <slot name="icon" :node="node"></slot>
+        <template #node-icon="{ data }">
+          <slot name="node-icon" :node="data"></slot>
         </template>
-        <template #node-text="{ node }">
-          <slot name="text" :node="node"></slot>
+        <template #node-text="{ data }">
+          <slot name="node-text" :node="data"></slot>
         </template>
       </drag-node>
     </template>
