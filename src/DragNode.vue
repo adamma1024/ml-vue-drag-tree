@@ -29,13 +29,13 @@
       @dragleave.stop='dragLeaveChild'>
         <div 
         :class='{"node-icon-div ml-drag-content": true, "ivu-menu-item-hover":isHover}'>
-          <slot name="node-icon" :node="model">
+          <slot name="node-icon" :data="model">
             <Icon :type="model.icon"></Icon>
           </slot>
         </div>
         <div 
         :class='{"node-text-div ml-drag-content": true, "ivu-menu-item-hover":isHover}'>
-          <slot name="node-text" :node="model">
+          <slot name="node-text" :data="model">
             <Tooltip :content="model.title" 
             placement="top-start"
             max-width="200" 
@@ -66,11 +66,11 @@
       @menuitem-mouse-in="onMouseIn"
       @menuitem-mouse-leave="onMouseLeave"
       @on-node-click='onNodeClick'>
-        <template v-slot:node-icon="slotProps">
-          <slot name="node-icon" :node="slotProps.node"></slot>
+        <template #node-icon="{ data }">
+          <slot name="node-icon" :node="data"></slot>
         </template>
-        <template v-slot:node-text="slotProps">
-          <slot name="node-text" :node="slotProps.node"></slot>
+        <template #node-text="{ data }">
+          <slot name="node-text" :node="data"></slot>
         </template>
       </drag-node>
     </div>

@@ -12,11 +12,11 @@
       :active-name='currentName'
       :max-char-num="maxCharNum"
       @on-node-click='changeOpenName'>
-        <template v-slot:node-icon="slotProps">
-          <slot name="icon" :node="slotProps.node"></slot>
+        <template #node-icon="{ node }">
+          <slot name="icon" :node="node"></slot>
         </template>
-        <template v-slot:node-text="slotProps">
-          <slot name="text" :node="slotProps.node"></slot>
+        <template #node-text="{ node }">
+          <slot name="text" :node="node"></slot>
         </template>
       </drag-node>
     </template>
