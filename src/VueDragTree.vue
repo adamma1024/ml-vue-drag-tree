@@ -54,7 +54,7 @@ export default {
       default: () => []
     },
     activeName: {
-      type: String,
+      type: [String ,Number],
       default: ''
     }
   },
