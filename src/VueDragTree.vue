@@ -2,7 +2,7 @@
   <div class="ivu-menu ivu-menu-light ivu-menu-vertical">
     <template v-for='(item,index) in data'>
       <drag-node
-      :model='item'
+      <!-- :model='item' -->
       :allowDrag='allowDrag' 
       :allowDrop='allowDrop' 
       :depth='increaseDepth'  
