@@ -29,13 +29,13 @@
       @dragleave.stop='dragLeaveChild'>
         <div 
         :class='{"node-icon-div ml-drag-content": true, "ivu-menu-item-hover":isHover}'>
-          <slot name="node-icon" :data="model">
+          <slot name="node-icon" :data="model ? model : {}">
             <Icon :type="model.icon"></Icon>
           </slot>
         </div>
         <div 
         :class='{"node-text-div ml-drag-content": true, "ivu-menu-item-hover":isHover}'>
-          <slot name="node-text" :data="model">
+          <slot name="node-text" :data="model ? model : {}">
             <Tooltip :content="model.title" 
             placement="top-start"
             max-width="200" 
