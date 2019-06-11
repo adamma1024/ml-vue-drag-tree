@@ -1,6 +1,6 @@
 {
   "name": "ml-vue-drag-tree",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Drag and drop tree components for Vue2.x, support both nested and list",
   "author": "malin<240814476@qq.com>",
   "private": false,
@@ -39,7 +39,7 @@
   "license": "MIT",
   "homepage": "https://github.com/qq240814476/ml-vue-drag-tree#readme",
   "dependencies": {
-    "iview": "^3.3.3",
+    "iview": "^3.4.0",
     "lodash": "^3.10.1",
     "vue": "^2.6.10"
   },
