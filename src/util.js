@@ -158,6 +158,7 @@ const charWidthTable = {
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
   ]
 }
+
 const getCharWidth = (char) => {
   for (let i = 0; i < charWidthTable[1].length; i++) {
     if (char === charWidthTable[1][i]) {
