@@ -16,6 +16,9 @@
     "type": "git",
     "url": "git@github.com:qq240814476/ml-vue-drag-tree.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "bugs": {
     "url": "https://github.com/qq240814476/ml-vue-drag-tree/issues"
   },
