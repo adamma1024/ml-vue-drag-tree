@@ -147,6 +147,7 @@ const exchangeData = (from, to, e) => {
     Vue.set(root.data, 0, lang.cloneDeep(root.data[0]))
     // 发送添加节点事件
     root.addChild(parentNode, newFrom)
+    root.endChange()
   })
 }
 

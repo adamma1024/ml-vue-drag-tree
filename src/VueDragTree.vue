@@ -74,9 +74,9 @@ export default {
     activeName(val){
       this.currentName = val
     },
-    data(val){
-      this.$emit('on-data-change', val)
-    },
+    // data(val){
+    //   this.$emit('on-data-change', val)
+    // },
     openNames:{
       deep: true,
       handler: function(val){
