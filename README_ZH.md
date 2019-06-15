@@ -1,10 +1,10 @@
 # ml-vue-drag-tree
 
-> 本项目基于shuirong的 [vue-drag-tree](https://github.com/shuirong/vue-drag-tree)，感谢
+> 本项目基于shuirong的 [vue-drag-tree](https://github.com/shuirong/vue-drag-tree)，感谢😘😘😘
 
 [![Version](http://img.shields.io/npm/v/ml-vue-drag-tree.svg)](https://www.npmjs.com/package/ml-vue-drag-tree)[![Downloads](http://img.shields.io/npm/dm/ml-vue-drag-tree.svg)](https://www.npmjs.com/package/ml-vue-drag-tree)[![License](https://img.shields.io/npm/l/ml-vue-drag-tree.svg?style=flat)](https://opensource.org/licenses/MIT)
 
-> 这是一个Vue2.x的树组件。它允许你去拖拽任意节点，当然，“交换”会反映在data数据中。支持排序和嵌套
+> 这是一个Vue2.x的树🎄组件。它允许你去拖拽任意节点，当然，“交换”会反映在data数据中。支持排序和嵌套
 
 **功能**
 
