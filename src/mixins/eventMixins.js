@@ -7,7 +7,7 @@ export default {
       this.$emit('on-node-data-change', 'add', parent, node)
     },
     endChange () {
-      this.$emit('on-change-end', this.data)
+      this.$emit('on-data-change', this.data)
     }
   }
 }
