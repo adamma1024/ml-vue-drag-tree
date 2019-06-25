@@ -1,6 +1,6 @@
 {
   "name": "ml-vue-drag-tree",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "🐛A vue tree🎄🏝 component which support drag & drop 👆👇 and nested",
   "author": "malin<240814476@qq.com>",
   "private": false,

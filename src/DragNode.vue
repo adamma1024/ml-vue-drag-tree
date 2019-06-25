@@ -67,10 +67,10 @@
       @menuitem-mouse-leave="onMouseLeave"
       @on-node-click='onNodeClick'>
         <template #node-icon="{ data }">
-          <slot name="node-icon" :node="data"></slot>
+          <slot name="node-icon" :data="data"></slot>
         </template>
         <template #node-text="{ data }">
-          <slot name="node-text" :node="data"></slot>
+          <slot name="node-text" :data="data"></slot>
         </template>
       </drag-node>
     </div>
