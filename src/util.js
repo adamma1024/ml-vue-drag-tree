@@ -175,6 +175,7 @@ const getCharWidth = (char) => {
 }
 
 export const shortText = function (text, length) {
+  text = text || ''
   let showtextShort = text
   let short = true
   let strArr = text.split('')
