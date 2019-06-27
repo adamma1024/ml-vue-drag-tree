@@ -22,7 +22,7 @@
             :content="data.title" 
             placement="top-start"
             max-width="200" 
-            :delay="1000" transfer theme="light" :disabled="shortText(data.title, this.maxCharNum) === false">
+            :delay="1000" transfer theme="light" :disabled="shortText(data.title, maxCharNum) === false">
               <span class='text'>{{formatText(data.title)}}</span>
             </Tooltip>
           </slot>
