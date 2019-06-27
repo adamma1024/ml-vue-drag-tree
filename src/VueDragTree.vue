@@ -10,13 +10,22 @@
       :dragging='dragging'
       :open-names='currOpenNames'
       :active-name='currentName'
-      :max-char-num="maxCharNum"
       @on-node-click='changeOpenName'>
         <template #node-icon="{ data }">
-          <slot name="node-icon" :node="data"></slot>
+          <slot name="node-icon" :node="data">
+            <Icon :type="data.icon"></Icon>
+          </slot>
         </template>
         <template #node-text="{ data }">
-          <slot name="node-text" :node="data"></slot>
+          <slot name="node-text" :node="data">
+            <Tooltip
+            :content="data.title" 
+            placement="top-start"
+            max-width="200" 
+            :delay="1000" transfer theme="light" :disabled="shortText(data.title, this.maxCharNum) === false">
+              <span class='text'>{{formatText(data.title)}}</span>
+            </Tooltip>
+          </slot>
         </template>
       </drag-node>
     </template>
@@ -26,6 +35,7 @@
 <script>
 import DragNode from './DragNode'
 import eventMixins from './mixins/eventMixins.js'
+import { shortText } from './util'
 const lang = require('lodash/lang')
 
 export default {
@@ -82,6 +92,11 @@ export default {
     }
   },
   methods: {
+    shortText,
+    formatText(text){
+      let t = shortText(text, this.maxCharNum)
+      return t ? t : text
+    },
     emitCurNodeClicked (model, component) {
       this.currentName = model.id
       this.$emit('current-node-clicked', model, component)

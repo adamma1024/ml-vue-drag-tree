@@ -29,20 +29,11 @@
       @dragleave.stop='dragLeaveChild'>
         <div 
         :class='{"node-icon-div ml-drag-content": true, "ivu-menu-item-hover":isHover}'>
-          <slot name="node-icon" :data="model ? model : {}">
-            <Icon :type="model.icon"></Icon>
-          </slot>
+          <slot name="node-icon" :data="model ? model : {}"></slot>
         </div>
         <div 
         :class='{"node-text-div ml-drag-content": true, "ivu-menu-item-hover":isHover}'>
-          <slot name="node-text" :data="model ? model : {}">
-            <Tooltip :content="model.title" 
-            placement="top-start"
-            max-width="200" 
-            :delay="1000" transfer theme="light" :disabled="shortText(model.title, this.maxCharNum) === false">
-              <span class='text'>{{formatText(model.title)}}</span>
-            </Tooltip>
-          </slot>
+          <slot name="node-text" :data="model ? model : {}"></slot>
         </div>
         <Icon :class="[isOpened ? 'nodeClicked' : '','vue-drag-node-icon']" type="ios-arrow-down" v-if="showDropDownIcon()"></Icon>
       </div>
@@ -62,7 +53,6 @@
       :depth='increaseDepth'
       :open-names='openNames'
       :active-name='activeName'
-      :max-char-num="maxCharNum"
       @menuitem-mouse-in="onMouseIn"
       @menuitem-mouse-leave="onMouseLeave"
       @on-node-click='onNodeClick'>
@@ -83,7 +73,7 @@ let fromData = null
 let toData = null
 let rootTree = null // vue-drag-tree组件引用
 
-import { findRoot, exchangeData, shortText } from './util'
+import { findRoot, exchangeData } from './util'
 export default {
   name: 'DragNode',
   data () {
@@ -122,10 +112,6 @@ export default {
     dragging: {
       type: Boolean,
       default: false
-    },
-    maxCharNum: {
-      type: Number,
-      default: 6
     }
   },
   computed: {
@@ -155,11 +141,6 @@ export default {
     }
   },
   methods: {
-    shortText,
-    formatText(text){
-      let t = shortText(text, this.maxCharNum)
-      return t ? t : text
-    },
     showDropDownIcon () {
       if (this.model.children) {
         return true
