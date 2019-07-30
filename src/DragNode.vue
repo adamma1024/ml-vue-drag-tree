@@ -271,6 +271,8 @@ export default {
 @dnd-bg-color: #fff;
 @dnd-is-clicked-bg-color: rgba(244,246,248,1);
 @dnd-is-hover-bg-color: rgba(249,249,249,1);
+@menu-item-bg-color: #f0faff;
+@font-default: MicrosoftYaHei;
 
 .dnd-container {
   background: @dnd-bg-color;
@@ -291,10 +293,11 @@ export default {
 }
 
 .menu-item-active{
-  color: #2d8cf0;
-  background: #f0faff;
+  color: @iview-bule;
+  background: @menu-item-bg-color;
   z-index: 2;
 }
+
 .node-text-div {
   margin-left: 17px;
   height:17px;
