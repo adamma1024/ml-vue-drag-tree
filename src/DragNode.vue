@@ -273,6 +273,11 @@ export default {
 @dnd-is-hover-bg-color: rgba(249,249,249,1);
 @menu-item-bg-color: #f0faff;
 @font-default: MicrosoftYaHei;
+@height-default: 17px;
+@margin-left-default: 17px;
+
+@text-font: 13px;
+@icon-font: 16px;
 
 .dnd-container {
   background: @dnd-bg-color;
@@ -299,24 +304,24 @@ export default {
 }
 
 .node-text-div {
-  margin-left: 17px;
-  height:17px;
-  font-size:13px;
+  margin-left: @margin-left-default;
+  height: @height-default;
+  font-size: @text-font;
   font-family: @font-default;
-  line-height:17px;
+  line-height: @height-default;
 }
 
 /**拖拽内容区域*/
 .ml-drag-content-div {
   position: relative;
-  height: 17px;
-  line-height: 17px;
+  height: @height-default;
+  line-height: @height-default;
   box-sizing: border-box;
   width: -webkit-fill-available;
   width: -moz-fill-available;
   width: -moz-available;
   width: fill-available;
-  font-size: 16px;
+  font-size: @icon-font;
   display: flex;
   align-items: center;
 }
@@ -363,7 +368,7 @@ export default {
 
 .node-icon-div{
   display: inline-block;
-  width: 16px;
+  width: @icon-font;
   height: 100%;
   margin-left: 17px; 
 }
@@ -376,7 +381,7 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #2d8cf0;
+  background: @iview-bule;
 }
 </style>
 
