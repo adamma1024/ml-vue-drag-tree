@@ -268,19 +268,18 @@ export default {
 
 <style lang='less' scoped>
 @iview-bule: #2d8cf0;
-@is-clicked-bg-color: rgba(244,246,248,1);
-@is-hover-bg-color: rgba(249,249,249,1);
+@dnd-bg-color: #fff;
+@dnd-is-clicked-bg-color: rgba(244,246,248,1);
+@dnd-is-hover-bg-color: rgba(249,249,249,1);
 
 .dnd-container {
-  background: #fff;
-}
-
-.dnd-container .is-clicked {
-  background: rgba(244,246,248,1);
-}
-
-.dnd-container .is-hover {
-  background: rgba(249,249,249,1);
+  background: @dnd-bg-color;
+  .is-clicked {
+    background: @dnd-is-clicked-bg-color;
+  }
+  .is-hover {
+    background: @dnd-is-hover-bg-color;
+  }
 }
 
 .item {
