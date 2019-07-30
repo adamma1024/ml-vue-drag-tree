@@ -357,13 +357,12 @@ export default {
 /**拖拽上下区域*/
 .ml-drag-top-div{
   height: 14.5px;
-  border: 0px;
 }
 
 .ml-drag-bottom-div:extend(.ml-drag-top-div){}
 
 .tree-node-div{
-  padding: 0px 1px !important;
+  padding: 0px 2px !important;
   border: @drag-box-border-solid-nocolor;
   &.child-hover{
     border: @drag-box-border-dashed;
