@@ -282,21 +282,21 @@ export default {
 @drag-box-border-dashed: 1px dashed rgba(89,140,168,1);
 @drag-box-border-solid: 1px solid rgba(89,140,168,1);
 
-.dnd-container {
+.dnd-container{
   background: @dnd-bg-color;
-  .is-clicked {
+  &.is-clicked{
     background: @dnd-is-clicked-bg-color;
   }
-  .is-hover {
+  &.is-hover{
     background: @dnd-is-hover-bg-color;
   }
 }
 
-.item {
+.item{
   cursor: pointer;
 }
 
-.bold {
+.bold{
   font-weight: bold;
 }
 
@@ -306,7 +306,7 @@ export default {
   z-index: 2;
 }
 
-.node-text-div {
+.node-text-div{
   margin-left: @margin-left-default;
   height: @height-default;
   font-size: @text-font;
@@ -316,7 +316,7 @@ export default {
 }
 
 /**拖拽内容区域*/
-.ml-drag-content-div {
+.ml-drag-content-div{
   position: relative;
   height: @height-default;
   line-height: @height-default;
@@ -330,14 +330,14 @@ export default {
   align-items: center;
 }
 
-.vue-drag-node-icon {
+.vue-drag-node-icon{
   display: inline-block;
   position: absolute;
   right: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
-.nodeClicked {
+.nodeClicked{
   transform: rotate(180deg);
 }
 
@@ -346,19 +346,19 @@ export default {
   height: 14.5px;
 }
 
-.ml-drag-bottom-div:extend(.ml-drag-top-div)
+.ml-drag-bottom-div:extend(.ml-drag-top-div){}
 
-.tree-node-div {
+.tree-node-div{
   padding: 1px 2px !important;
-  .child-hover{
+  &.child-hover{
     padding: 0px 1px !important;
     border: @drag-box-border-dashed;
   }
-  .bottom-hover{
+  &.bottom-hover{
     padding: 1px 2px 0px 2px !important;
     border-bottom: @drag-box-border-solid;
   }
-  .top-hover{
+  &.top-hover{
     padding: 0px 2px 1px 2px !important;
     border-top: @drag-box-border-solid;
   }
