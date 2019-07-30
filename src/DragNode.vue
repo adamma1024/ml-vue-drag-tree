@@ -220,6 +220,7 @@ export default {
     drag (e) {
       fromData = this
       rootTree.emitDrag(this.model, this, e)
+      console.log(e)
     },
     dragStart (e) {
       e.dataTransfer.effectAllowed = 'move'
@@ -352,7 +353,6 @@ export default {
 .tree-node-div{
   padding: 0px 1px !important;
   border: @drag-box-border-solid-nocolor;
-  cursor: pointer;
   &.child-hover{
     border: @drag-box-border-dashed;
   }
