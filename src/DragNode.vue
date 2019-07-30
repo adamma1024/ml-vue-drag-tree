@@ -279,6 +279,9 @@ export default {
 @text-font: 13px;
 @icon-font: 16px;
 
+@drag-box-border-dashed: 1px dashed rgba(89,140,168,1);
+@drag-box-border-solid: 1px solid rgba(89,140,168,1);
+
 .dnd-container {
   background: @dnd-bg-color;
   .is-clicked {
@@ -338,24 +341,26 @@ export default {
 }
 
 /**拖拽上下区域*/
-.ml-drag-top-div,.ml-drag-bottom-div {
+.ml-drag-top-div{
   height: 14.5px;
 }
 
+.ml-drag-bottom-div:extend(.ml-drag-top-div)
+
 .tree-node-div {
   padding: 1px 2px !important;
-}
-.tree-node-div.child-hover{
-  padding: 0px 1px !important;
-  border: 1px dashed rgba(89,140,168,1);
-}
-.tree-node-div.bottom-hover{
-  padding: 1px 2px 0px 2px !important;
-  border-bottom: 1px solid rgba(89,140,168,1);
-}
-.tree-node-div.top-hover{
-  padding: 0px 2px 1px 2px !important;
-  border-top: 1px solid rgba(89,140,168,1);
+  .child-hover{
+    padding: 0px 1px !important;
+    border: @drag-box-border-dashed;
+  }
+  .bottom-hover{
+    padding: 1px 2px 0px 2px !important;
+    border-bottom: @drag-box-border-solid;
+  }
+  .top-hover{
+    padding: 0px 2px 1px 2px !important;
+    border-top: @drag-box-border-solid;
+  }
 }
 
 .ivu-tooltip{
@@ -363,25 +368,27 @@ export default {
 }
 
 .node-text-div,.ivu-tooltip-rel,.ivu-tooltip{
-  height: 17px;
+  height: @height-default;
 }
 
 .node-icon-div{
   display: inline-block;
   width: @icon-font;
   height: 100%;
-  margin-left: 17px; 
+  margin-left: @margin-left-default; 
 }
 
-.menu-item-active-before::before{
-  content: '';
-  display: block;
-  width: 2px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: @iview-bule;
+.menu-item-active-before{
+  &:before{
+    content: '';
+    display: block;
+    width: 2px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: @iview-bule;
+  }
 }
 </style>
 
