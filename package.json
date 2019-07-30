@@ -43,7 +43,7 @@
   "homepage": "https://github.com/qq240814476/ml-vue-drag-tree#readme",
   "dependencies": {
     "iview": "^3.4.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.15",
     "vue": "^2.6.10"
   },
   "devDependencies": {
