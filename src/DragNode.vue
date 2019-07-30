@@ -312,6 +312,7 @@ export default {
   font-size: @text-font;
   font-family: @font-default;
   line-height: @height-default;
+  display: inline-block;
 }
 
 /**拖拽内容区域*/
@@ -326,7 +327,6 @@ export default {
   width: fill-available;
   width: 100%;
   font-size: @icon-font;
-  display: flex;
   align-items: center;
 }
 
