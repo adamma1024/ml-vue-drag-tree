@@ -1,11 +1,11 @@
 <template>
-  <div :style='styleObj' 
-  :draggable='isDraggable' 
+  <div :style='styleObj'
+  :draggable='isDraggable'
   @drag.stop='drag'
-  @dragstart.stop='dragStart' 
-  @dragover.stop='dragOver' 
-  @drop.stop='drop' 
-  @dragend.stop='dragEnd' 
+  @dragstart.stop='dragStart'
+  @dragover.stop='dragOver'
+  @drop.stop='drop'
+  @dragend.stop='dragEnd'
   class='dnd-container'>
     <div :class='{"menu-item-active": isActived,
     "menu-item-active-before": isActived,
@@ -15,6 +15,8 @@
     "bottom-hover": isDragBottomHover, 
     "ivu-menu-item tree-node-div": true}' 
     @click="toggle"
+    @dragenter.stop='dragCancel'
+    @dragleave.stop='dragCancel'
     @mouseenter='mouseEnter' 
     @mouseleave='mouseLeave'>
       <div
@@ -180,21 +182,31 @@ export default {
     },
     dragEnterChild (e) {
       this.isDragChildHover = true
+      e.preventDefault()
     },
     dragLeaveChild (e) {
       this.isDragChildHover = false
+      e.preventDefault()
     },
     dragEnterBottom (e) {
       this.isDragBottomHover = true
+      e.preventDefault()
     },
     dragLeaveBottom (e) {
       this.isDragBottomHover = false
+      e.preventDefault()
     },
     dragEnterTop (e) {
       this.isDragTopHover = true
+      e.preventDefault()
     },
     dragLeaveTop (e) {
       this.isDragTopHover = false
+      e.preventDefault()
+    },
+    dragCancel(e){
+      // e.preventDefault()
+      return true
     },
     onMouseIn(e){
       let id = this.model.id
@@ -220,7 +232,6 @@ export default {
     drag (e) {
       fromData = this
       rootTree.emitDrag(this.model, this, e)
-      console.log(e)
     },
     dragStart (e) {
       e.dataTransfer.effectAllowed = 'move'
@@ -346,6 +357,7 @@ export default {
 /**拖拽上下区域*/
 .ml-drag-top-div{
   height: 14.5px;
+  border: 0px;
 }
 
 .ml-drag-bottom-div:extend(.ml-drag-top-div){}
