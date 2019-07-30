@@ -44,6 +44,15 @@ import 'ml-vue-drag-tree/dist/vue-drag-tree.min.css'
 Vue.use(VueDragTree)
 ```
 
+### 1.3.0 新特性
+
+---
+
+- 样式支持ie
+- 调整css -> less
+- 修复鼠标在menu-item移动过程中出现 禁用图标
+
+
 ### 接口
 
 ---
