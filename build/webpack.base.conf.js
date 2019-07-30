@@ -19,15 +19,14 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(js|vue)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   include: [resolve('src'), resolve('test')],
-      //   options: {
-      //     formatter: require('eslint-friendly-formatter')
-      //   }
-      // },
+      /* config.module.rule('less') */
+      {
+        test: /\.less$/,
+        loader: 'less-loader',
+        options: {
+          sourceMap: false
+        }
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
