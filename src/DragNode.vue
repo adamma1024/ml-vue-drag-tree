@@ -297,6 +297,8 @@ export default {
 
 .dnd-container{
   background: @dnd-bg-color;
+  // iview menu after width : 1px
+  margin-right: 1px;
   &.is-clicked{
     background: @dnd-is-clicked-bg-color;
   }
