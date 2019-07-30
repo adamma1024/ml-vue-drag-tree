@@ -7,6 +7,7 @@ test/e2e/reports
 selenium-debug.log
 dist/
 
+package-lock
 # Editor directories and files
 .idea
 *.suo

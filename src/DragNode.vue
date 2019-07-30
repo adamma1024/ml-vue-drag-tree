@@ -324,6 +324,7 @@ export default {
   width: -moz-fill-available;
   width: -moz-available;
   width: fill-available;
+  width: 100%;
   font-size: @icon-font;
   display: flex;
   align-items: center;
