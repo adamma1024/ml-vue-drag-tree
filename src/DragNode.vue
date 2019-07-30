@@ -205,8 +205,8 @@ export default {
       e.preventDefault()
     },
     dragCancel(e){
-      // e.preventDefault()
-      return true
+      // 经过元素边缘 防止鼠标样式变成禁止
+      e.preventDefault()
     },
     onMouseIn(e){
       let id = this.model.id
