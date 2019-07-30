@@ -267,6 +267,10 @@ export default {
 </script>
 
 <style lang='less' scoped>
+@iview-bule: #2d8cf0;
+@is-clicked-bg-color: rgba(244,246,248,1);
+@is-hover-bg-color: rgba(249,249,249,1);
+
 .dnd-container {
   background: #fff;
 }
