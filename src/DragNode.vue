@@ -280,7 +280,8 @@ export default {
 @icon-font: 16px;
 
 @drag-box-border-dashed: 1px dashed rgba(89,140,168,1);
-@drag-box-border-solid: 1px solid rgba(89,140,168,1);
+@drag-box-border-solid-nocolor: 1px solid #fff;
+@drag-box-border-solid-color: 1px solid rgba(89,140,168,1);
 
 .dnd-container{
   background: @dnd-bg-color;
@@ -349,18 +350,17 @@ export default {
 .ml-drag-bottom-div:extend(.ml-drag-top-div){}
 
 .tree-node-div{
-  padding: 1px 2px !important;
+  padding: 0px 1px !important;
+  border: @drag-box-border-solid-nocolor;
+  cursor: pointer;
   &.child-hover{
-    padding: 0px 1px !important;
     border: @drag-box-border-dashed;
   }
   &.bottom-hover{
-    padding: 1px 2px 0px 2px !important;
-    border-bottom: @drag-box-border-solid;
+    border-bottom: @drag-box-border-solid-color;
   }
   &.top-hover{
-    padding: 0px 2px 1px 2px !important;
-    border-top: @drag-box-border-solid;
+    border-top: @drag-box-border-solid-color;
   }
 }
 
