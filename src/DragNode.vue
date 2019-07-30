@@ -302,7 +302,7 @@ export default {
   margin-left: 17px;
   height:17px;
   font-size:13px;
-  font-family:MicrosoftYaHei;
+  font-family: @font-default;
   line-height:17px;
 }
 
