@@ -1,6 +1,6 @@
 # ml-vue-drag-tree
 
-> this pro is base on shuirong's [vue-drag-tree](https://github.com/shuirong/vue-drag-tree),thanks very much😘😘😘!
+> this pro is base on shuirong's [vue-drag-tree](https://github.com/shuirong/vue-drag-tree),thanks very much😘😘😘
 
 [![Version](http://img.shields.io/npm/v/ml-vue-drag-tree.svg)](https://www.npmjs.com/package/ml-vue-drag-tree)[![Downloads](http://img.shields.io/npm/dm/ml-vue-drag-tree.svg)](https://www.npmjs.com/package/ml-vue-drag-tree)[![License](https://img.shields.io/npm/l/ml-vue-drag-tree.svg?style=flat)](https://opensource.org/licenses/MIT)
 
