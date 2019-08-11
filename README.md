@@ -13,7 +13,7 @@
 - Support **nested and list**
 - data and view **two-way-data-binding**
 
-**[中文](README_ZH.md)** || **Please Star! if it's helpful**.
+**[中文](README_ZH.md)** || **Please Star! if it's helpful**
 **[Example Project](https://github.com/qq240814476/ml-vue-drag-tree-demo)**
 
 ### Preview
