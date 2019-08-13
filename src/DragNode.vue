@@ -45,7 +45,7 @@
         @dragleave.stop='dragLeaveBottom'>
       </div>
     </div>
-    <div class='treeMargin open' v-show="isOpened" v-if="isFolder">
+    <div class='treeMargin open' v-show="isOpened" v-if="isFolder()">
       <drag-node v-for="item2 in model.children"
       :allowDrag='allowDrag'
       :allowDrop='allowDrop'
@@ -117,17 +117,11 @@ export default {
     }
   },
   computed: {
-    isFolder () {
-      return this.model.children && this.model.children.length
-    },
     increaseDepth () {
       return this.depth + 1
     },
     isDraggable () {
       return this.allowDrag(this.model, this)
-    },
-    isOpened () {
-      return this.openNames.indexOf(this.model.id) > -1
     },
     isActived () {
       return this.activeName === this.model.id
@@ -143,6 +137,13 @@ export default {
     }
   },
   methods: {
+    // 由于this.model更新有可能不触发computed，移入methods中
+    isFolder () {
+      return this.model.children && this.model.children.length
+    },
+    isOpened () {
+      return this.openNames.indexOf(this.model.id) > -1
+    },
     showDropDownIcon () {
       if (this.model.children) {
         return true
