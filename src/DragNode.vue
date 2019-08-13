@@ -37,7 +37,7 @@
         :class='{"node-text-div ml-drag-content": true, "ivu-menu-item-hover":isHover}'>
           <slot name="node-text" :data="model ? model : {}"></slot>
         </div>
-        <Icon :class="[isOpened ? 'nodeClicked' : '','vue-drag-node-icon']" type="ios-arrow-down" v-if="showDropDownIcon()"></Icon>
+        <Icon :class="[isOpened() ? 'nodeClicked' : '','vue-drag-node-icon']" type="ios-arrow-down" v-if="showDropDownIcon()"></Icon>
       </div>
       <div
         :class='{"ml-drag-bottom-div": true, "menu-item-active": isActived}' 
@@ -45,7 +45,7 @@
         @dragleave.stop='dragLeaveBottom'>
       </div>
     </div>
-    <div class='treeMargin open' v-show="isOpened" v-if="isFolder()">
+    <div class='treeMargin open' v-show="isOpened()" v-if="isFolder()">
       <drag-node v-for="item2 in model.children"
       :allowDrag='allowDrag'
       :allowDrop='allowDrop'
@@ -148,7 +148,7 @@ export default {
       if (this.model.children) {
         return true
       } else {
-        if (this.isOpened) {
+        if (this.isOpened()) {
           // 关闭打开状态
           this.onNodeClick(this.model.id)
         }
