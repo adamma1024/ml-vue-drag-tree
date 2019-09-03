@@ -13,3 +13,8 @@
 
 - 修复由于computed不触发导致的问题（无法删除二级节点）
 
+### 1.3.2
+
+#### Fixed
+
+- `on-node-data-change` 传出 `parentNode` children错误

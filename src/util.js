@@ -120,7 +120,7 @@ const exchangeData = (from, to, e) => {
      * 找到vue-drag-tree的父组件（数据源头），在这里修改数据。
      */
     deleteNodeInVueResponsive(from.$parent, newFrom.id, true)
-    parentNode = {id: null, children: from.$parent.children}
+    parentNode = {id: null, children: from.$parent.data}
   } else {
     deleteNodeInVueResponsive(fromParentModel, newFrom.id)
     parentNode = fromParentModel
