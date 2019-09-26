@@ -1,5 +1,6 @@
 var path = require('path')
 var utils = require('./utils')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -22,10 +23,17 @@ module.exports = {
       /* config.module.rule('less') */
       {
         test: /\.less$/,
-        loader: 'less-loader',
-        options: {
-          sourceMap: false
-        }
+        use: ExtractTextPlugin.extract({
+            use: [
+              'css-loader',
+              {
+                loader: 'less-loader',
+                options: {
+                  sourceMap: false
+                }
+              }
+            ]
+          }),
       },
       {
         test: /\.vue$/,
@@ -54,5 +62,5 @@ module.exports = {
         }
       }
     ]
-  }
+  },
 }

@@ -4,6 +4,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 var webpackConfig = merge(baseWebpackConfig, {
   mode:'production',
@@ -28,9 +29,10 @@ var webpackConfig = merge(baseWebpackConfig, {
       commonjs2: 'vue',
       amd: 'vue'
     },
-    loadsh: 'loadsh'
+    // loadsh: 'loadsh'
   },
   plugins: [
+    new VueLoaderPlugin(),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: 'vue-drag-tree.min.css'
